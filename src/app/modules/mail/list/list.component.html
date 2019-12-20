@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-12">
+        <div *ngIf="isLoading">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div *ngIf="!isLoading">
+            <span>
+                <button
+                    mat-raised-button
+                    color="primary"
+                    (click)="getAllThreadsWithDetail()"
+                >
+                    Refresh
+                </button>
+            </span>
+
+            <table mat-table [dataSource]="$threadList" class="mat-elevation-z8"></table>
+
+            <div>{{$threadList | json}}</div>
+
+            <app-list-item
+                *ngFor="let threadElem of $threadList; let i = index"
+                [thread]="threadElem"
+                [threadId]="threadElem.id"
+                [itemIndex]="i"
+            >
+            </app-list-item>
+        </div>
+    </div>
+</div>

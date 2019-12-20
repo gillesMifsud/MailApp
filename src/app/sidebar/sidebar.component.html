@@ -1,0 +1,40 @@
+<div class="sidebar">
+    <nav>
+        <div class="logo">
+            <img src="./assets/logo_gmail_lockup_default_1x.png" class="d-inline-block" alt="">
+            <span class="text-secondary">NgMail</span>
+        </div>
+
+        <mat-divider></mat-divider>
+
+        <mat-list role="list">
+
+            <mat-list-item role="listitem">
+                <a mat-raised-button color="primary"
+                   [routerLinkActive]="['active']"
+                   [routerLink]="['/new']">
+                    <i class="material-icons">add</i>
+                    <span>New</span>
+                </a>
+            </mat-list-item>
+
+            <mat-list-item role="listitem">
+                <a mat-raised-button color="primary"
+                   [routerLinkActive]="['active']"
+                   [routerLink]="['/mail-list']">
+                    <i class="material-icons">list</i>
+                    <span>Emails</span>
+                </a>
+            </mat-list-item>
+
+            <mat-list-item role="listitem">
+                <a mat-raised-button color="primary"
+                   (click)="logout()">
+                    <i class="material-icons">power_settings_new</i>
+                    <span>Logout</span>
+                </a>
+            </mat-list-item>
+
+        </mat-list>
+    </nav>
+</div>
