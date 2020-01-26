@@ -38,7 +38,7 @@ export class UserService {
                     (res) => {
                         this.ngZone.run(
                             () => {
-                                this.router.navigate(['mail-list']);
+                                this.router.navigate(['mail']);
                                 this.signInSuccessHandler(res);
                             }
                         );
@@ -79,7 +79,7 @@ export class UserService {
             );
             // Subject next here
             this.isLoginSubject.next(true);
-            this.router.navigate(['mail-list']);
+            this.router.navigate(['mail']);
         });
     }
 

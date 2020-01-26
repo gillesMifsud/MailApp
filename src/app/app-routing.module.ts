@@ -5,10 +5,10 @@ import { AuthGuard } from './services/auth-guard.service';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/mail-list', pathMatch: 'full' }, // Redirect only if the full path is empty
+    { path: '', redirectTo: 'mail', pathMatch: 'full' }, // Redirect only if the full path is empty
     { path: 'login', component: LoginComponent },
     {
-        path: 'mail-list',
+        path: 'mail',
         loadChildren: () =>
             import('./modules/mail/mail.module').then(
                 m => m.MailModule

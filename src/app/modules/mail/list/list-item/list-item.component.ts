@@ -2,8 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {MailService} from '../../../../services/mail.service';
 import {MatDialog, MatDialogConfig} from '@angular/material';
 import {DeleteDialogComponent} from '../../delete-dialog/delete-dialog.component';
-import {Router} from '@angular/router';
-import {StepService} from '../../../../services/step.service';
 
 @Component({
     selector: 'app-list-item',
@@ -14,29 +12,18 @@ export class ListItemComponent implements OnInit {
     @Input() itemIndex: number;
     @Input() thread: any;
     @Input() threadId: number;
-    step: number;
+    detailMode = false;
 
     constructor(
-        private router: Router,
         private mailService: MailService,
-        private stepService: StepService,
         private dialog: MatDialog) {
     }
 
     ngOnInit() {
-        this.stepService.step.subscribe(step => this.step = step);
     }
 
-    setStep(step: number) {
-        this.stepService.changeStep(step);
-    }
-
-    nextStep() {
-        this.stepService.changeStep(this.step = this.step + 1);
-    }
-
-    prevStep() {
-        this.stepService.changeStep(this.step = this.step - 1);
+    toogleDetailMode() {
+        this.detailMode = !this.detailMode;
     }
 
     openDialog(threadId: number, subject: string) {
@@ -60,6 +47,7 @@ export class ListItemComponent implements OnInit {
                 data => {
                     if (data === this.threadId) {
                         this.deleteThread(this.threadId);
+                        
                         console.log('Deleted!');
                     }
                 },

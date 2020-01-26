@@ -15,23 +15,14 @@ import {
     MatIconModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatButtonModule
 } from '@angular/material';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MailRoutingModule } from './mail.routing.module';
 
 @NgModule({
-    declarations: [
-        DeleteDialogComponent,
-        DetailComponent,
-        ListComponent,
-        ListItemComponent,
-        SendComponent,
-        SanitizeHtmlPipePipe,
-        RmBtwChevronsPipe,
-        DecodeHtmlStringPipe
-    ],
     imports: [
         CommonModule,
         MailRoutingModule,
@@ -43,7 +34,7 @@ import { MailRoutingModule } from './mail.routing.module';
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
-        MatTableModule
+        MatButtonModule
     ],
     exports: [
         MatDialogModule,
@@ -54,7 +45,17 @@ import { MailRoutingModule } from './mail.routing.module';
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
-        MatTableModule
+        MatButtonModule
+    ],
+    declarations: [
+        DeleteDialogComponent,
+        DetailComponent,
+        ListComponent,
+        ListItemComponent,
+        SendComponent,
+        SanitizeHtmlPipePipe,
+        RmBtwChevronsPipe,
+        DecodeHtmlStringPipe
     ],
     entryComponents: [DeleteDialogComponent]
 })

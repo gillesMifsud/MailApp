@@ -3,7 +3,13 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html,
 body {
-  background-color: #e9ecef;
+  background-color: #dde1e6;
   height: 100%;
   color: #333;
+}
+.mat-drawer-content {
+  background-color: #dde1e6;
+}
+.bg-white {
+  background-color: white;
 }

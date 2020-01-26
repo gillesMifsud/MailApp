@@ -1,20 +1,10 @@
-<div>
-    <div class="first-line">
-        <span class="exp">{{ thread.fromexp | rmBtwChevrons }}</span>
-        <span class="date">{{ thread.date | date }}</span>
-    </div>
-    <div class="subject">{{ thread.subject }}</div>
-
-    <mat-divider></mat-divider>
-
-    <div class="accordion-content">
-        <div class="mail-header">
-            <div>
-                Categories :
-                <span *ngFor="let labelsId of thread.labelsId"
-                    >{{ labelsId | lowercase }}
-                </span>
-            </div>
+<div class="mat-elevation-z1 mb-2 p-2 bg-white">
+    <div class="first-line d-flex justify-content-between">
+        <div>
+            <span class="exp">{{ thread.fromexp | rmBtwChevrons }}</span>
+            <span class="date">{{ thread.date | date }}</span>
+        </div>
+        <div>
             <button
                 mat-icon-button
                 color="warn"
@@ -23,29 +13,36 @@
             >
                 <mat-icon mat-list-icon>delete</mat-icon>
             </button>
+            <button
+                mat-icon-button
+                aria-label="Detail"
+                (click)="toogleDetailMode()"
+            >
+                <mat-icon mat-list-icon *ngIf="!detailMode"
+                    >keyboard_arrow_down</mat-icon
+                >
+                <mat-icon mat-list-icon *ngIf="detailMode"
+                    >keyboard_arrow_up</mat-icon
+                >
+            </button>
         </div>
+    </div>
+
+    <div class="subject">{{ thread.subject }}</div>
+
+    <div *ngIf="detailMode">
+        <div class="mail-header">
+            <div>
+                Categories :
+                <span *ngFor="let labelsId of thread.labelsId; let i = index"
+                    >{{ labelsId | lowercase }}
+                    <span *ngIf="i + 1 < thread.labelsId.length">, </span>
+                </span>
+            </div>
+        </div>
+
         <div class="mail-content">
             <div [outerHTML]="thread.bodyResponse | sanitizeHtmlPipe"></div>
         </div>
     </div>
-
-    <button
-        (click)="prevStep()"
-        mat-button
-        color="primary"
-        aria-label="Previous mail"
-    >
-        <mat-icon>navigate_before</mat-icon>
-        <b>Prev</b>
-    </button>
-
-    <button
-        (click)="nextStep()"
-        mat-button
-        color="accent"
-        aria-label="Next mail"
-    >
-        <b>Next</b>
-        <mat-icon>navigate_next</mat-icon>
-    </button>
 </div>

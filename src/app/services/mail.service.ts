@@ -93,7 +93,8 @@ export class MailService {
             .set('Accept', 'application/json')
             .set('Content-Type', 'message/rfc822');
 
-        const body = this.encodeBodySimple(
+        const body = this.makeBody(
+            message.to,
             message.to,
             message.subject,
             message.message
@@ -142,6 +143,16 @@ export class MailService {
                 raw: JSON.stringify(encodedMessage)
             }
         };
+    }
+
+    makeBody(to, from, subject, message) {
+        let str = [
+            "to: ", to, "\n",
+            "from: ", from, "\n",
+            "subject: ", subject, "\n\n",
+            message,
+        ].join('');
+        return str;
     }
 
     deleteThread(threadId: number) {

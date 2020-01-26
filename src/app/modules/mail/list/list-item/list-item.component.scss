@@ -1,20 +1,3 @@
-mat-expansion-panel {
-  margin-bottom: 3px;
-}
-@media (min-width: 992px) {
-  .mat-expansion-panel-header {
-    padding: 28px 24px;
-  }
-}
-@media (max-width: 991px) {
-  .mat-expansion-panel-header-title {
-    flex-direction: column;
-  }
-}
-.first-line {
-  display: flex;
-  flex-direction: column;
-}
 .exp {
   font-weight: bold;
   margin-right: 15px;
@@ -22,11 +5,6 @@ mat-expansion-panel {
 .date {
   color: #adb5bd;
   font-size: 12px;
-}
-.mail-header {
-  padding-top: 10px;
-  display: flex;
-  justify-content: space-between;
 }
 .subject {
   color: #6c757d;
