@@ -22,13 +22,11 @@ import { AuthGuard } from './services/auth-guard.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from './services/token.interceptor.service';
 import { RedirectInterceptorService } from './services/redirect.interceptor.service';
-import {
-    MatSidenavModule,
-    MatToolbarModule,
-    MatDividerModule,
-    MatListModule,
-    MatButtonModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 @NgModule({

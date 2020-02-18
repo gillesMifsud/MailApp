@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {MailService} from '../../../../services/mail.service';
-import {MatDialog, MatDialogConfig} from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import {DeleteDialogComponent} from '../../delete-dialog/delete-dialog.component';
 
 @Component({
